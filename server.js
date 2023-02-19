@@ -31,19 +31,12 @@ mongoose
         console.log("Error Mongodb connection");
     });
 
-//Define Apollo Server
-// const server = new ApolloServer({
-//     typeDefs: TypeDefs.typeDefs,
-//     resolvers: Resolvers.resolvers,
-// });
-
 //Define Express Server
 const app = express();
 app.use(bodyParser.json());
 app.use("*", cors());
 
-//Add Express app as middleware to Apollo Server
-// server.applyMiddleware({ app });
+// Defining Apollo Server
 
 let server = null;
 async function startServer() {
