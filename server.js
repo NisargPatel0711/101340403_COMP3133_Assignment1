@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
 //import typedefs and resolvers
 const TypeDefs = require("./schema");

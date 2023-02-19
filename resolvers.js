@@ -156,7 +156,7 @@ exports.resolvers = {
                 const newUser = new User({
                     username: args.username,
                     email: args.email,
-                    password: args.password
+                    password: args.password,
                 });
                 const user = await newUser.save();
                 if (user) {
@@ -179,7 +179,7 @@ exports.resolvers = {
                         status: false,
                         error: error,
                     };
-                }                
+                }
             }
         },
     },
