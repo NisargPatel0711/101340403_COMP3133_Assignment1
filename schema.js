@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 exports.typeDefs = gql`
     type Employee {
-        id: ID!
+        id: ID
         first_name: String!
         last_name: String!
         email: String!
@@ -10,20 +10,35 @@ exports.typeDefs = gql`
         salary: Float!
     }
 
+    type User {
+        id: ID
+        username: String!
+        email: String!
+        password: String!
+    }
+
+    type Message {
+        message: String
+        status: Boolean
+        error: String
+        employee: Employee
+        user: User
+    }
+
     type Query {
         getEmployees: [Employee]
         getEmployeeByID(id: ID!): Employee
+        login(username: String!, password: String!): Message
     }
 
     type Mutation {
         addEmployee(
-            id: ID!
             first_name: String!
             last_name: String!
             email: String!
             gender: String!
             salary: Float!
-        ): Employee
+        ): Message
 
         updateEmployee(
             id: ID!
@@ -32,8 +47,10 @@ exports.typeDefs = gql`
             email: String!
             gender: String!
             salary: Float!
-        ): Employee
+        ): Message
 
-        deleteEmployee(id: String!): Employee
+        deleteEmployee(id: String!): Message
+
+        signup(username: String!, email: String!, password: String!): Message
     }
 `;
