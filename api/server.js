@@ -41,7 +41,6 @@ app.use("*", cors());
 let server = null;
 async function startServer() {
     server = new ApolloServer({
-        path: "/api/graphql",
         typeDefs: TypeDefs.typeDefs,
         resolvers: Resolvers.resolvers,
     });
